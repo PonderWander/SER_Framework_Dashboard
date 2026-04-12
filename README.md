@@ -1,2 +1,57 @@
-# SER_Framework_Dashboard
-A dashboard for visualizing the framework on CONUS
+# SER Framework Dashboard
+
+A data-driven visualization of socio-economic resilience and distribution dynamics.
+
+
+---
+
+## Overview
+
+The SER Framework Dashboard is an interactive analytics tool designed to evaluate and visualize systemic economic health through key indicators such as:
+
+- CPI (Consumer Price Index)
+
+- Median Income
+
+- Consumer Expenditure
+
+- Elasticity of regional economic response
+
+- Distribution of productive capacity
+
+
+This project operationalizes the SER (Stability–Elasticity–Resilience) Framework, enabling quantitative exploration of how economic systems respond to stress, investment, and policy shifts.
+
+
+---
+
+## Core Idea
+
+Modern economies experience downturns when:
+
+- Consumers become structurally irrelevant
+
+- Capability becomes over-centralized
+
+- Feedback loops become distorted or delayed
+
+
+This dashboard provides a way to:
+
+- Detect those failure modes early
+
+- Measure distribution vs extraction
+
+- Identify regions of strong or weak elasticity
+
+## Data Inputs
+
+Typical inputs include:
+
+- CPI data
+
+- Median household income
+
+- Consumer expenditure metrics
+
+- Regional economic indicators
