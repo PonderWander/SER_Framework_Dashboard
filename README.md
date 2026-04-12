@@ -2,6 +2,11 @@
 
 A data-driven visualization of socio-economic resilience and distribution dynamics.
 
+## Map View
+![Map View](https://github.com/PonderWander/SER_Framework_Dashboard/blob/main/assets/map_view.png?raw=true)
+
+## Data View
+![Data View](https://github.com/PonderWander/SER_Framework_Dashboard/blob/main/assets/aggregate_view.png?raw=true)
 
 ---
 
