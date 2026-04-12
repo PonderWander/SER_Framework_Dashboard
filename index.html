@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U.S. Economic Indicators Dashboard</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<h2 class="sr-only">U.S. Economic Indicators Dashboard with SER Framework — interactive CONUS choropleth map and aggregated statistics</h2>
+
+<div class="dash">
+  <div class="topbar">
+    <div class="brand">U.S. Economic Indicators <span class="ser-badge">+ SER</span></div>
+    <div class="controls">
+      <span class="ctrl-label">Metric</span>
+      <select id="metricSel">
+        <optgroup label="Labor &amp; Income">
+          <option value="unemployment">Unemployment Rate</option>
+          <option value="medianIncome">Median Household Income</option>
+          <option value="laborParticipation">Labor Participation Rate</option>
+        </optgroup>
+        <optgroup label="Prices &amp; Living">
+          <option value="inflation">CPI Inflation</option>
+          <option value="costOfLiving">Cost-of-Living Index</option>
+        </optgroup>
+        <optgroup label="Credit &amp; Capital">
+          <option value="creditScore">Avg Credit Score</option>
+          <option value="capex">Capital Expenditure ($B)</option>
+        </optgroup>
+        <optgroup label="SER Framework (Castle 2026)">
+          <option value="ser_stress">SER — Stress (S*)</option>
+          <option value="ser_elasticity">SER — Elasticity (E*)</option>
+          <option value="ser_reaction">SER — Reaction (R*)</option>
+          <option value="ser_utility">SER — Utility Proxy (U*)</option>
+        </optgroup>
+      </select>
+      <span class="ctrl-label">Year</span>
+      <select id="yearSel">
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <div class="tab active" id="tab-map" onclick="switchTab('map')">CONUS Map View</div>
+    <div class="tab" id="tab-agg" onclick="switchTab('agg')">Aggregated CONUS</div>
+  </div>
+
+  <!-- MAP VIEW -->
+  <div class="view active" id="view-map">
+    <div class="map-wrap">
+      <div class="legend-wrap" id="legendWrap"></div>
+      <div class="scale-row" id="scaleRow">
+        <label>Heat scale:</label>
+        <div class="scale-inputs">
+          <input type="number" id="scaleMin" placeholder="Min" step="any">
+          <span class="scale-sep">to</span>
+          <input type="number" id="scaleMax" placeholder="Max" step="any">
+          <button class="scale-apply" onclick="applyCustomScale()">Apply</button>
+          <button class="scale-apply" onclick="resetScale()">Auto</button>
+        </div>
+      </div>
+      <svg id="mapSvg" viewBox="0 0 960 600"></svg>
+    </div>
+    <div class="side-panel" id="sidePanel">
+      <div class="no-sel" id="noSel">Hover or click a state to explore</div>
+      <div id="stateCard" style="display:none" class="state-card">
+        <div class="state-name" id="sc-name"></div>
+        <div class="state-sub" id="sc-sub"></div>
+        <div id="sc-rows"></div>
+        <div class="ser-section">
+          <div class="ser-title">SER Framework (Castle 2026)</div>
+          <div id="sc-ser"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGGREGATED VIEW -->
+  <div class="view" id="view-agg" style="flex-direction:column">
+    <div class="metric-cards" id="aggCards"></div>
+    <div class="chart-row">
+      <div class="chart-box">
+        <h3 id="barTitle">Top 10 states by selected metric</h3>
+        <div style="position:relative;height:260px">
+          <canvas id="barChart" role="img" aria-label="Bar chart of top 10 states by selected metric"></canvas>
+        </div>
+      </div>
+      <div class="chart-box">
+        <h3>CONUS average — trend 2019–2024</h3>
+        <div style="position:relative;height:260px">
+          <canvas id="lineChart" role="img" aria-label="Line chart of CONUS average trend over time"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="chart-box" style="margin-top:12px">
+      <h3>All states — raw data table</h3>
+      <div class="table-wrap" id="tableWrap"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CDN Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+<!-- App Modules -->
+<script src="src/data.js"></script>
+<script src="src/ser.js"></script>
+<script src="src/dashboard.js"></script>
+
+</body>
+</html>
