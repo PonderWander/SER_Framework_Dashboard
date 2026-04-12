@@ -2,6 +2,8 @@
 
 A data-driven visualization of socio-economic resilience and distribution dynamics.
 
+Analytics are driven by ongoing research in relationships between capital investment in the public and perceived macroeconomic trends.
+
 ## Map View
 ![Map View](https://github.com/PonderWander/SER_Framework_Dashboard/blob/main/assets/map_view.png?raw=true)
 
