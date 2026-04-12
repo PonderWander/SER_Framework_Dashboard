@@ -4,6 +4,10 @@ A data-driven visualization of socio-economic resilience and distribution dynami
 
 Analytics are driven by ongoing research in relationships between capital investment in the public and perceived macroeconomic trends.
 
+SSRN: 10215177
+Framework paper in review 4/12/2026
+Concept exploration paper 02/04/2026
+
 ## Map View
 ![Map View](https://github.com/PonderWander/SER_Framework_Dashboard/blob/main/assets/map_view.png?raw=true)
 
